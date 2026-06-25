@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spam Detection System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-box {
+            background: rgba(255, 255, 255, 0.95);
+            width: 430px;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .main-box:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 12px;
+            font-size: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            outline: none;
+            resize: none;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        textarea:focus {
+            border-color: #185a9d;
+            box-shadow: 0 0 6px rgba(24,90,157,0.5);
+        }
+
+        button {
+            margin-top: 18px;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+            transform: translateY(-2px);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .error {
+            margin-top: 15px;
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        .tagline {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-box">
+        <h1>📩 Spam Detection System</h1>
+        <p>Enter Email / SMS / Message text to check if it is Spam or Not</p>
+
+        <form method="POST">
+            <textarea 
+                name="message" 
+                placeholder="Type your message here..." 
+                required 
+                minlength="5"></textarea>
+
+            <button type="submit">Check Spam</button>
+        </form>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        {% if result %}
+            <div class="result">{{ result }}</div>
+        {% endif %}
+
+        <div class="tagline">
+            Mini Project | Machine Learning Based Spam Detection
+        </div>
+    </div>
+
+</body>
+</html>
